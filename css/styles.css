@@ -1,0 +1,179 @@
+/* Complete Academy - Custom styles */
+
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.safe-bottom {
+  padding-bottom: var(--safe-bottom);
+}
+
+/* Navigation active state */
+.nav-btn {
+  color: #94a3b8;
+  transition: color 0.15s;
+}
+.nav-btn.active {
+  color: #2DD4BF;
+}
+.nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* Cards */
+.card {
+  background: rgba(13, 115, 119, 0.25);
+  border: 1px solid rgba(20, 143, 147, 0.3);
+  border-radius: 1rem;
+}
+
+.card-hover:hover {
+  background: rgba(13, 115, 119, 0.4);
+  border-color: rgba(45, 212, 191, 0.4);
+}
+
+/* Progress bar */
+.progress-track {
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #148F93, #2DD4BF);
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+/* Code playground */
+#code-editor {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  tab-size: 2;
+}
+
+/* Lesson content */
+.lesson-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.75rem;
+  color: #2DD4BF;
+}
+.lesson-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+}
+.lesson-content p {
+  margin-bottom: 1rem;
+  line-height: 1.65;
+  color: #e2e8f0;
+}
+.lesson-content ul, .lesson-content ol {
+  margin: 0.75rem 0 1rem 1.25rem;
+  color: #e2e8f0;
+}
+.lesson-content li {
+  margin-bottom: 0.35rem;
+}
+.lesson-content code {
+  background: rgba(0,0,0,0.35);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+  color: #2DD4BF;
+}
+.lesson-content pre {
+  background: #042f2e;
+  border: 1px solid rgba(20,143,147,0.4);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.lesson-content pre code {
+  background: none;
+  padding: 0;
+  color: #e2e8f0;
+}
+
+/* Chat bubbles */
+.chat-bubble-user {
+  background: #148F93;
+  border-radius: 1rem 1rem 0.25rem 1rem;
+}
+.chat-bubble-ai {
+  background: rgba(13, 115, 119, 0.5);
+  border: 1px solid rgba(20, 143, 147, 0.4);
+  border-radius: 1rem 1rem 1rem 0.25rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Button styles */
+.btn-primary {
+  background: #EF4444;
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-primary:hover {
+  background: #DC2626;
+}
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  background: rgba(20, 143, 147, 0.3);
+  border: 1px solid rgba(45, 212, 191, 0.4);
+  color: #2DD4BF;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: background 0.15s;
+}
+.btn-secondary:hover {
+  background: rgba(20, 143, 147, 0.5);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0D7377" />
+  <meta name="description" content="Complete Academy — The official mobile companion for FNB App Academy learners across Africa. Offline lessons, code playground, progress tracking & more." />
+  <title>Complete Academy | FNB App Academy Companion</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              950: '#042f2e',
+              900: '#0D4F4F',
+              800: '#0D7377',
+              700: '#148F93',
+              600: '#1AA3A8',
+              500: '#2DD4BF',
+            },
+            accent: {
+              DEFAULT: '#EF4444',
+              hover: '#DC2626',
+              soft: '#FEE2E2'
+            },
+            orange: {
+              DEFAULT: '#F97316',
+              soft: '#FFEDD5'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-teal-950 text-white font-sans antialiased min-h-screen">
+
+  <!-- ========== APP SHELL ========== -->
+  <div id="app" class="min-h-screen flex flex-col">
+
+    <!-- TOP NAV (hidden on landing) -->
+    <header id="top-nav" class="hidden sticky top-0 z-50 bg-teal-900/95 backdrop-blur border-b border-teal-800">
+      <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="navigate('dashboard')">
+          <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center font-bold text-sm">CA</div>
+          <span class="font-bold text-lg tracking-tight">Complete Academy</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div id="streak-badge" class="hidden sm:flex items-center gap-1 bg-orange/20 text-orange px-2.5 py-1 rounded-full text-xs font-semibold">
+            🔥 <span id="streak-count">0</span> day streak
+          </div>
+          <button onclick="navigate('profile')" class="w-9 h-9 rounded-full bg-teal-700 flex items-center justify-center text-sm font-bold" id="avatar-btn">
+            U
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="flex-1">
+      <!-- Views injected here -->
+    </main>
+
+    <!-- BOTTOM NAV (mobile) -->
+    <nav id="bottom-nav" class="hidden fixed bottom-0 left-0 right-0 z-50 bg-teal-900/95 backdrop-blur border-t border-teal-800 safe-bottom">
+      <div class="max-w-5xl mx-auto grid grid-cols-5 h-16">
+        <button data-page="dashboard" class="nav-btn flex flex-col items-center justify-center gap-0.5 text-xs">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span>Home</span>
+        </button>
+        <button data-page="lessons" class="nav-btn flex flex-col items-center justify-center gap-0.5 text-xs">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          <span>Lessons</span>
+        </button>
+        <button data-page="playground" class="nav-btn flex flex-col items-center justify-center gap-0.5 text-xs">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          <span>Code</span>
+        </button>
+        <button data-page="buddy" class="nav-btn flex flex-col items-center justify-center gap-0.5 text-xs">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          <span>AI Buddy</span>
+        </button>
+        <button data-page="progress" class="nav-btn flex flex-col items-center justify-center gap-0.5 text-xs">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          <span>Progress</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] hidden px-4 py-2.5 rounded-xl bg-teal-700 text-white text-sm font-medium shadow-lg transition-all"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

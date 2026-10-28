@@ -1,0 +1,24 @@
+{
+  "name": "Complete Academy",
+  "short_name": "Complete Academy",
+  "description": "Mobile companion for FNB App Academy learners across Africa. Offline lessons, code playground, progress tracking & AI study buddy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#042f2e",
+  "theme_color": "#0D7377",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
